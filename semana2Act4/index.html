@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            color: #880e4f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #ad1457;
+            margin-bottom: 20px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border: 3px solid #f48fb1;
+            border-radius: 10px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carousel img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+   
+    <div class="carousel" id="carousel">
+        <div class="carousel-images" id="carouselImages">
+           
+        </div>
+    </div>
+
+    <script>
+      
+        const images = [
+            "https://i.pinimg.com/736x/fb/97/03/fb97034f88b2697f9802c433bf0d900f.jpg",
+            "https://i.pinimg.com/564x/11/2e/41/112e41ce35d0fc7b8a10590cd2cadac5.jpg",
+            "https://i.pinimg.com/736x/60/ec/ab/60ecabc02a5f4b316936044655d8a3d4.jpg",
+            "https://i.pinimg.com/474x/e9/5b/78/e95b78a3fbf0adb7213d67c80b59d84d.jpg",
+            "https://i.pinimg.com/236x/1d/b7/7b/1db77b9563b9df7768a9287af9fe0f8e.jpg",
+            "https://i.pinimg.com/236x/1a/c8/1b/1ac81b99bba04105e54c00c0126dfc8f.jpg",
+            "https://i.pinimg.com/236x/18/c7/b0/18c7b0e3252c3dbdb9cdadccd55f6e2d.jpg"
+        ];
+        let currentIndex = 0;
+        let carouselInterval;
+
+        function displayImages() {
+            const carouselImages = document.getElementById('carouselImages');
+            carouselImages.innerHTML = '';
+
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                carouselImages.appendChild(img);
+            });
+
+            startCarousel();
+        }
+
+        function startCarousel() {
+            carouselInterval = setInterval(() => {
+                nextImage();
+            }, 3000); 
+        }
+
+        function nextImage() {
+            const carouselImages = document.getElementById('carouselImages');
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            carouselImages.style.transform = `translateX(-${currentIndex * 300}px)`;
+        }
+
+        window.onload = function() {
+            displayImages();
+        };
+    </script>
+</body>
+</html>

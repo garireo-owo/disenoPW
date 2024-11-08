@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Colores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main>
+        <div class="color-container">
+            <div class="color-box" id="colorBox"></div>
+            <div class="color-buttons">
+                <button class="color-btn" onclick="changeColor('#FFB6C1')">Rosa Claro</button>
+                <button class="color-btn" onclick="changeColor('#FF69B4')">Rosa Intenso</button>
+                <button class="color-btn" onclick="changeColor('#FF1493')">Rosa Oscuro</button>
+                <button class="color-btn" onclick="changeColor('#FF6347')">Coral</button>
+                <button class="color-btn" onclick="changeColor('#FF4500')">Naranja Rojo</button>
+                <button class="color-btn" onclick="changeColor('#DB7093')">Rosa Pálido</button>
+            </div>
+            <input type="color" id="colorPicker" class="color-picker" onchange="changeColor(this.value)">
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
