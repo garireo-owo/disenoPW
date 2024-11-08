@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 1 - Ojos que Siguen al Ratón</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ff9fb7;
+        }
+
+        .cara {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: #ffb060;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .ojo {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ojo.izquierdo {
+            left: 50px;
+            top: 60px;
+        }
+
+        .ojo.derecho {
+            right: 50px;
+            top: 60px;
+        }
+
+        .pupila {
+            width: 15px;
+            height: 15px;
+            background-color: black;
+            border-radius: 50%;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="cara">
+        <div class="ojo izquierdo">
+            <div class="pupila" id="pupilaIzquierda"></div>
+        </div>
+        <div class="ojo derecho">
+            <div class="pupila" id="pupilaDerecha"></div>
+        </div>
+    </div>
+
+    <script>
+
+        const pupilaIzquierda = document.getElementById("pupilaIzquierda");
+        const pupilaDerecha = document.getElementById("pupilaDerecha");
+
+        function moverPupilas(event) {
+  
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            const rectIzquierdo = pupilaIzquierda.parentElement.getBoundingClientRect();
+            const rectDerecho = pupilaDerecha.parentElement.getBoundingClientRect();
+
+
+            const calcularPosicionPupila = (rect) => {
+                const ojoCentroX = rect.left + rect.width / 2;
+                const ojoCentroY = rect.top + rect.height / 2;
+
+                const angleX = (mouseX - ojoCentroX) / 20;
+                const angleY = (mouseY - ojoCentroY) / 20;
+
+                return { x: angleX, y: angleY };
+            };
+
+
+            const posIzquierda = calcularPosicionPupila(rectIzquierdo);
+            pupilaIzquierda.style.transform = `translate(${posIzquierda.x}px, ${posIzquierda.y}px)`;
+
+            const posDerecha = calcularPosicionPupila(rectDerecho);
+            pupilaDerecha.style.transform = `translate(${posDerecha.x}px, ${posDerecha.y}px)`;
+        }
+
+
+        document.addEventListener("mousemove", moverPupilas);
+    </script>
+
+</body>
+</html>

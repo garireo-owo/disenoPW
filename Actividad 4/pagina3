@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 3 - Bienvenido y Adiós</title>
+    <script>
+
+        function mensajeBienvenida() {
+            alert("Bienvenido");
+        }
+
+
+        function mensajeDespedida() {
+            alert("Adiós");
+        }
+    </script>
+</head>
+<body onload="mensajeBienvenida()" onunload="mensajeDespedida()">
+    <h1>Página 3: Bienvenido y Adiós</h1>
+    <p>Se mostrará un mensaje de bienvenida al entrar en la página y un mensaje de despedida al salir.</p>
+</body>
+</html>

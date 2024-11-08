@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 2 - Mensaje en la Barra de Estado</title>
+    <script>
+        let mensaje = "Mensaje desplazándose en la barra de estado. ";
+        let index = 0;
+
+
+        function desplazarMensaje() {
+
+            window.status = mensaje.substring(index, mensaje.length) + mensaje.substring(0, index);
+            index = (index + 1) % mensaje.length;
+        }
+
+
+        setInterval(desplazarMensaje, 200);
+    </script>
+</head>
+<body>
+    <h1>Página 2: Mensaje en la Barra de Estado</h1>
+    <p>Observa la barra de estado en la parte inferior del navegador para ver el mensaje en movimiento.</p>
+</body>
+</html>
