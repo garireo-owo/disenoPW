@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de imagenes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+            color: #d63384;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #a61d4d;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .dropdown {
+            padding: 10px;
+            border: 2px solid #ff99cc;
+            border-radius: 5px;
+            background-color: #fff0f5;
+            font-size: 16px;
+        }
+
+        .image-box {
+            border: 3px dashed #ffb3d9;
+            border-radius: 10px;
+            background-color: #fff0f5;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Selecciona una imagen</h1>
+    <div class="container">
+        <select class="dropdown" id="imageSelector" onchange="showImage()">
+            <option value="">Seleccionar</option>
+            <option value="https://i.pinimg.com/736x/a7/2e/b1/a72eb1a50101c1c34e4056d4a5cf3ea5.jpg">Miku 1</option>
+            <option value="https://i.pinimg.com/736x/e9/5b/78/e95b78a3fbf0adb7213d67c80b59d84d.jpg">Miku 2</option>
+            <option value="https://i.pinimg.com/736x/08/66/b1/0866b1250564a9e25be39f21c3197966.jpg">Miku 3</option>
+        </select>
+        <div class="image-box" id="imageDisplay">
+            <p>La imagen aparecerá aquí :3</p>
+        </div>
+    </div>
+
+    <script>
+        function showImage() {
+            const selector = document.getElementById('imageSelector');
+            const imageDisplay = document.getElementById('imageDisplay');
+            const selectedImage = selector.value;
+
+            if (selectedImage) {
+                imageDisplay.innerHTML = `<img src="${selectedImage}" alt="Imagen Seleccionada">`;
+            } else {
+                imageDisplay.innerHTML = `<p>La imagen aparecerá aquí</p>`;
+            }
+        }
+    </script>
+</body>
+</htm
